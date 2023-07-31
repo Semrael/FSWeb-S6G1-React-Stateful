@@ -28959,16 +28959,25 @@ function Sayac() {
     sayici = _useState2[0],
     setsayici = _useState2[1];
   var artirici = function artirici() {
+    console.log(" setter \xF6ncesi sayici :".concat(sayici));
+    setsayici(sayici + 1);
+    console.log("setter sonrasi sayici :".concat(sayici));
+
     /* ADIM 4 buraya */
   };
+
   var azaltici = function azaltici() {
+    setsayici(sayici - 1);
     /* ADIM 5 */
   };
-  var reset = function reset() {};
+
+  var reset = function reset() {
+    setsayici(0);
+  };
   var stil = {
     fontSize: "1.5em",
     marginBottom: "0.3em",
-    color: "royalblue" /* ADIM 2 */
+    color: sayici % 2 === 0 ? "royalblue" : "crimson" /* ADIM 2 */
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -28976,7 +28985,7 @@ function Sayac() {
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Saya\xE7"), /*#__PURE__*/_react.default.createElement("div", {
     id: "sayici",
     style: stil
-  }, "Say\u0131 ", sayici, " "), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+  }, "Say\u0131 ", sayici, sayici % 2 === 0 ? "çift" : "tek", "/* ADIM 3 buraya*/"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
     id: "artirici",
     onClick: artirici
   }, "Art\u0131r\u0131c\u0131"), /*#__PURE__*/_react.default.createElement("button", {
